@@ -41,7 +41,7 @@ char useMotor = 'a';
 // you can limit the motor spped if you like (you could also just change your image : / )
 // values should be between 0–255
 // keep in mind: the motor controll is inverted --> 0 is on; 255 if off
-int motorMaxValue = 0;
+int motorMaxValue = 150;
 int motorMinvalue = 255;
 
 // factor we scale the mouse movment to
