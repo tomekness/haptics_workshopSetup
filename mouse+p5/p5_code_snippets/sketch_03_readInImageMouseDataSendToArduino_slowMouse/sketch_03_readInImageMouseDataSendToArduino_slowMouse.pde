@@ -9,7 +9,7 @@ boolean debug = true;
 PImage map;
 
 // which file to load
-String imageFile = "img/greyScale-2d_1440x900.png";
+String imageFile = "img/path_01.jpg"; //"img/greyScale-2d_1440x900.png";
 
 int lastPixelValue = 0;
 
@@ -22,8 +22,8 @@ char useMotor = 'a';
 
 Robot robby;
 
-float xFactor_mouseSlowing = 1.5f;
-float yFactor_mouseSlowing = 1.5f ;
+float xFactor_mouseSlowing = 0.9f;
+float yFactor_mouseSlowing = 0.9f ;
 
 
 void setup() {
@@ -90,14 +90,14 @@ void draw() {
 
 public PVector adjustMousePos(PVector  _mousePos) {
 
-  int xStep = (int)(abs(mouseX-pmouseX) / xFactor_mouseSlowing);
+  int xStep = (int)(abs(mouseX-pmouseX) * xFactor_mouseSlowing);
   if (mouseX>pmouseX) {
     _mousePos.x = pmouseX + xStep;
   } else {
     _mousePos.x = pmouseX - xStep;
   }
 
-  int yStep =  (int)(abs(mouseY-pmouseY) / yFactor_mouseSlowing);
+  int yStep =  (int)(abs(mouseY-pmouseY) * yFactor_mouseSlowing);
   if (mouseY>pmouseY) {
     _mousePos.y = pmouseY + yStep;
   } else {
