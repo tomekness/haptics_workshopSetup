@@ -9,6 +9,8 @@ int m2 = 11;
 // communicaiton vars
 
 int buf = 0;
+int loopCount = 0;
+boolean highTime = true;
 
 // value 1 interval
 // value 2 intensitity
@@ -16,6 +18,7 @@ int valueOne = 255;
 int valueTwo = 150;
 
 int maxIntervalLength = 500; // in microseconds
+int interval = 255;
 
 char identifyerOne = 'a';
 char identifyerTwo = 'b';
@@ -48,16 +51,35 @@ void loop() {
     serialIn(temp);
   }
 
-  double interval = ((double)valueOne * (double)maxIntervalLength) / (double)255;
-  //Serial.println(interval);
+  calculateIntervall();
+  loopCount++;
 
-  analogWrite(m1, valueTwo);
-  delay(maxIntervalLength - interval);
+  if (highTime) {
+    if (loopCount > (maxIntervalLength - interval)) {
+      highTime = !highTime;
+      loopCount = 0;
+    } else {
+      analogWrite(m1, valueTwo);
+    }
+  } else {
+    if (loopCount > interval) {
+      highTime = !highTime;
+      loopCount = 0;
+    } else {
+      analogWrite(m1, 255);
+    }
+  }
 
-  analogWrite(m1, 255);
-  delay(interval);
+  // global delay
+  delay(1);
 
 }
+
+void calculateIntervall() {
+  interval = ((double)valueOne * (double)maxIntervalLength) / (double)255;
+  //Serial.println(interval);
+}
+
 
 void serialIn(byte _in) {
 
