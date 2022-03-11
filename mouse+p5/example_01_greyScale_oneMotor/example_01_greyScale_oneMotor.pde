@@ -30,10 +30,10 @@ boolean arduinoDebug = false;
 
 // which image to load
 //String imageFile = "img/greyScale-2d_1440x900.png";
-//String imageFile = "img/path_01.jpg";
+String imageFile = "img/path_01.jpg";
 //String imageFile = "img/transition.jpg";
 //String imageFile = "img/laybrint_03_.jpg";
-String imageFile = "img/labyrint_04_.jpg";
+//String imageFile = "img/labyrint_04_.jpg";
 
 // which motor to adress it's a or b
 char useMotor = 'a';
