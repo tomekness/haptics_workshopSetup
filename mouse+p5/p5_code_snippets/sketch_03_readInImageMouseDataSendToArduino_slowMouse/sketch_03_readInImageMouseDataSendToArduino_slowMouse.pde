@@ -22,8 +22,8 @@ char useMotor = 'a';
 
 Robot robby;
 
-float xFactor_mouseSlowing = 0.9f;
-float yFactor_mouseSlowing = 0.9f ;
+float xFactor_mouseScale = 0.5f;
+float yFactor_mouseScale = 0.5f ;
 
 
 void setup() {
@@ -90,14 +90,14 @@ void draw() {
 
 public PVector adjustMousePos(PVector  _mousePos) {
 
-  int xStep = (int)(abs(mouseX-pmouseX) * xFactor_mouseSlowing);
+  int xStep = (int)(abs(mouseX-pmouseX) * xFactor_mouseScale);
   if (mouseX>pmouseX) {
     _mousePos.x = pmouseX + xStep;
   } else {
     _mousePos.x = pmouseX - xStep;
   }
 
-  int yStep =  (int)(abs(mouseY-pmouseY) * yFactor_mouseSlowing);
+  int yStep =  (int)(abs(mouseY-pmouseY) * yFactor_mouseScale);
   if (mouseY>pmouseY) {
     _mousePos.y = pmouseY + yStep;
   } else {
