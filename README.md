@@ -1,6 +1,8 @@
 # haptics_workshopSetup
 processing sketches reading in mouse movment, comparring with a heat map, ourtputting to a vibrationMotor (arduino) 
 
+![haptic device](https://github.com/tomekness/haptics_workshopSetup/blob/main/documentation/haptic_device.jpg?raw=true)
+
 
 ----------------------
 
